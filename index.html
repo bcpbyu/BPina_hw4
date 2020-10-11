@@ -10,47 +10,60 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #6AA9FF;">
-        <a class="navbar-brand " href="index.html">Brendon Piña</a>
-        <div id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="contact.html">Contact Me</a>
-                </li>
-            </ul>
-        </div>
-    </nav> -->
-    <div id="quizStart" class="jumbotron text-center" style="display: no;">
+    <div id="quizStart" class="jumbotron text-center" style="display: no">
         <h1 class=display-4>Welcome To My Quiz!</h1>
         <p class="lead">Made by Brendon Piña</p>
         <button class="btn btn-primary" id="starterBtn"><span>Begin Quiz</span></button>
     </div>
-    <div class="container text-center align-center mt-5 pt-5" id="asker" style="display: none;">
-        <h1 id="questions" class = "my-5">
-
+    <div class="container text-center align-center mt-5 pt-5" id="asker" style="display: none">
+        <h1 id="questions" class="my-5">
         </h1>
-            <ul>
-                <button class="btn btn-primary mb-2" id="option1">
+        <ul>
+            <button class="btn btn-primary mb-2" id="option1">
 
-                </button>
-                <br>
-                <button class="btn btn-primary my-2" id="option2">
+            </button>
+            <br>
+            <button class="btn btn-primary my-2" id="option2">
 
-                </button>
-                <br>
-                <button class="btn btn-primary my-2" id="option3">
+            </button>
+            <br>
+            <button class="btn btn-primary my-2" id="option3">
 
-                </button>
-                <br>
-                <button class="btn btn-primary my-2" id="option4">
+            </button>
+            <br>
+            <button class="btn btn-primary my-2" id="option4">
 
-                </button>
-            </ul>
+            </button>
+        </ul>
     </div>
+    <div class="container text-center mt-5 pt-5" id="highscores" style="display: none">
+        <h1>
+            Youre Score: <span id="score"></span>
+        </h1>
+        <form type="text" method="POST" id="input">
+            <label for="initials">submit score?</label>
+            <br>
+            <input id="initials" type="text" name="initials" />
+        </form>
+        <button class="btn btn-primary mt-4" id="seeScore">
+            See All Scores
+        </button>
+        <button class="btn btn-primary mt-4" id="goAgain">
+            Try Again
+        </button>
 
+    </div>
+    <div class="container text-center mt-5 pt-5" id="scorePage" style="display: none">
+        <h1>
+            Scores
+        </h1>
+        <ul id="scoreList">
+
+        </ul>
+        <button class="btn btn-primary mt-4" id="goAgain">
+            Try Again
+        </button>
+    </div>
 
 
     <script src="script.js"></script>
