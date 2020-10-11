@@ -1,4 +1,8 @@
 var starterBtn = document.querySelector("#starterBtn");
+var questiony = document.querySelector("#asker");
+var questionasker;
+
+
 
 var test = {
     quiz1: {
@@ -16,15 +20,17 @@ var test = {
         options: ["not possible", "I dunno", "negative sine", "cosine"],
         answer: 3
     }
-
-
-
 };
+console.log("java");
 
 
 
 starterBtn.addEventListener("click", function() {
-
-
+    questiony.classList.remove("jumbotron");
+    questiony.innerHTML = "";
+    questionAsker = questiony.appendChild(h1);
+    questionAsker.createAttribute("class");
+    questionAsker.innerHTML = test.quiz1.question;
 
 });
+
