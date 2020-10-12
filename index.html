@@ -10,23 +10,48 @@
 </head>
 
 <body>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-sm-3" id="someDiv"></div>
-            <div class="col-sm-6"></div>
-            <div class="col-sm-3 text-right" id="scoreDis"></div>
+    <div class="container-fluid text-center" id="someCont" style="display: none">
+        <div class="row" style="height: 25px;"></div>
+        <div class="row font-weight-bold">
+            <div class="col-sm-5" id="someDiv"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5" id="scoreDis"></div>
+        </div>
+        <div class="row" style="height: 25px;"></div>
+    </div>
+
+    <div id="quizStart" style="display: no">
+        <div class="jumbotron text-center">
+            <h1 class=display-2>Welcome To My Quiz!</h1>
+            <p class="display-4">Made by Brendon Piña</p>
+
+        </div>
+        <div class="container">
+            <div class="container text-center">
+                <div calss="row">
+                    <h3>Rules</h3>
+                    <ul class="pl-0">
+                        <p>
+                            You have 30 seconds to answer 4 basic math questions
+                        </p>
+                        <p>
+                            A right answer gives you +5 points
+                        </p>
+                        <p>
+                            A wrong answer gives you -1 points and -3 seconds
+                        </p>
+                        <h4>Good Luck! :)</h4>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" id="starterBtn"><span>Begin Quiz</span></button>
+            </div>
         </div>
     </div>
 
-    <div id="quizStart" class="jumbotron text-center" style="display: no">
-        <h1 class=display-4>Welcome To My Quiz!</h1>
-        <p class="lead">Made by Brendon Piña</p>
-        <button class="btn btn-primary" id="starterBtn"><span>Begin Quiz</span></button>
-    </div>
 
-    <div class="container text-center align-center mt-5 pt-5" id="asker" style="display: none">
+    <div class="container text-center mt-5" id="asker" style="display: none">
         <h1 id="questions" class="my-5"></h1>
-        <ul>
+        <ul class="pl-0">
             <button class="btn btn-primary mb-2" id="option1"></button>
             <br>
             <button class="btn btn-primary my-2" id="option2"></button>
@@ -38,7 +63,7 @@
     </div>
 
     <div class="container text-center mt-5 pt-5" id="highscores" style="display: none">
-        <h1 id="#outOfTime">
+        <h1 id="outOfTime">
             Youre Score: <span id="score"></span>
         </h1>
         <form type="text" method="POST" id="input">
@@ -59,7 +84,7 @@
         <h1>
             Scores
         </h1>
-        <ul id="scoreList"></ul>
+        <ul id="scoreList" class="pl-0"></ul>
         <button class="btn btn-primary mt-4" id="goAgain2">
             Try Again
         </button>

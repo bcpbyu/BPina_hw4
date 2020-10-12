@@ -5,8 +5,6 @@ var asker = document.querySelector("#asker");
 var highscores = document.querySelector("#highscores");
 var allNames = [];
 var allScores = [];
-localStorage.setItem("initials", JSON.stringify(allNames));
-localStorage.setItem("scores", JSON.stringify(allScores))
 var seeScore = document.querySelector("#seeScore");
 var initials = document.querySelector("#initials");
 var input = document.querySelector("#input");
@@ -93,6 +91,7 @@ function nextQuest() {
 starterBtn.addEventListener("click", function () {
     quizStart.style.display = "none";
     asker.style.display = "block";
+    document.querySelector("#someCont").style.display = "block";
     countdown();
     nextQuest();
     timerId = setInterval(countdown, 1000);
@@ -101,10 +100,12 @@ starterBtn.addEventListener("click", function () {
 option1.addEventListener("click", function () {
     if (questionNum == 3) {
         score = score + 5;
+        flashGreen();
     }
     else {
         score--;
         timeLeft = timeLeft - timePenalty;
+        flashRed();
     }
     nextQuest();
 });
@@ -112,10 +113,12 @@ option1.addEventListener("click", function () {
 option2.addEventListener("click", function () {
     if (questionNum == 1) {
         score = score + 5;
+        flashGreen();
     }
     else {
         score--;
         timeLeft = timeLeft - timePenalty;
+        flashRed();
     }
     nextQuest();
 });
@@ -123,10 +126,12 @@ option2.addEventListener("click", function () {
 option3.addEventListener("click", function () {
     if (questionNum == 4) {
         score = score + 5;
+        flashGreen();
     }
     else {
         score--;
         timeLeft = timeLeft - timePenalty;
+        flashRed();
     }
     nextQuest();
 });
@@ -134,15 +139,18 @@ option3.addEventListener("click", function () {
 option4.addEventListener("click", function () {
     if (questionNum == 2) {
         score = score + 5;
+        flashGreen();
     }
     else {
         score--;
         timeLeft = timeLeft - timePenalty;
+        flashRed();
     }
     nextQuest();
 });
 
 seeScore.addEventListener("click", function () {
+    
     highscores.style.display = "none";
     scorePage.style.display = "block";
     allNames = JSON.parse(localStorage.getItem("initials"));
@@ -158,9 +166,15 @@ seeScore.addEventListener("click", function () {
 
 input.addEventListener("submit", function (event) {
     event.preventDefault();
+    var storedNames = JSON.parse(localStorage.getItem("initials"));
+    var storedScores = JSON.parse(localStorage.getItem("scores"));
+    if (storedNames !== null) {
+        allNames = storedNames;
+    }
+    if (storedScores !== null) {
+        allScores = storedScores
+    }
     var inputText = initials.value.trim();
-    allNames = JSON.parse(localStorage.getItem("initials"));
-    allScores = JSON.parse(localStorage.getItem("scores"));
     allNames.push(inputText);
     allScores.push(score);
     initials.value = "";
@@ -184,7 +198,7 @@ function countdown() {
     else if (finished == true) {
     }
     else {
-        elem.innerHTML = timeLeft + ' seconds remaining';
+        elem.innerHTML = timeLeft + " seconds remaining";
         timeLeft--;
     }
 };
@@ -193,5 +207,19 @@ function outOfTime() {
     asker.style.display = "none";
     highscores.style.display = "block";
     disScore.innerHTML = score;
-    document.querySelector("#outOfTime").innerHTML = "Out Of Time"
+    document.querySelector("#outOfTime").innerHTML = "Out Of Time";
+};
+
+function flashRed() {
+    document.querySelector("#someCont").classList.add("bg-danger");
+    window.setTimeout(function () {
+        document.querySelector("#someCont").classList.remove("bg-danger")
+    }, 300);
+};
+
+function flashGreen() {
+    document.querySelector("#someCont").classList.add("bg-success");
+    window.setTimeout(function () {
+        document.querySelector("#someCont").classList.remove("bg-success")
+    }, 300);
 };

@@ -1,4 +1,35 @@
 # BPina_hw4
+For this assignment I created a short quiz. You have 30 seconds to complete the four question quiz. If you get an answer right you get five points. If you get an answer wrong you lose one point and 3 seconds. Once you finish the quiz you can submit your score to be saved if you want to try again.
+Heres how you can get to it-
+https://bcpbyu.github.io/BPina_hw4/
+
+## Pictures
+
+This is the front of the quiz. This is what you will see when you first open the quiz.
+
+![Capture 1](./Assets/quizHome.png)
+
+This is what the page will look like if you get a question right.
+
+![Capture 2](./Assets/quizRight.png)
+
+This is what the page will look like if you get a question wrong.
+
+![Capture 3](./Assets/quizWrong.png)
+
+This is what the page will look like if you finish the quiz.
+
+![Capture 4](./Assets/quizEndEx1.png)
+
+This is an example of what the page will look like if you run out of time.
+
+![Capture 5](./Assets/quizEndEx2.png)
+
+This is an example of what scores page will look like if you decide to submit a score and look at them.
+
+![Capture 6](./Assets/quizScores.png)
+
+# Below is the given assignment instructions
 
 # 04 Web APIs: Code Quiz
 
