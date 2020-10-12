@@ -5,6 +5,8 @@ var asker = document.querySelector("#asker");
 var highscores = document.querySelector("#highscores");
 var allNames = [];
 var allScores = [];
+localStorage.setItem("initials", JSON.stringify(allNames));
+localStorage.setItem("scores", JSON.stringify(allScores))
 var seeScore = document.querySelector("#seeScore");
 var initials = document.querySelector("#initials");
 var input = document.querySelector("#input");
