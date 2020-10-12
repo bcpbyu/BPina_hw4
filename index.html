@@ -10,11 +10,19 @@
 </head>
 
 <body>
+    <div class = "container text-center">
+        <div class = "row">
+            <div class= "col-sm-3" id="someDiv"></div>
+            <div class= "col-sm-6"></div>
+            <div class= "col-sm-3" id="scoreDis"></div>
+        </div>
+    </div>
     <div id="quizStart" class="jumbotron text-center" style="display: no">
         <h1 class=display-4>Welcome To My Quiz!</h1>
         <p class="lead">Made by Brendon Piña</p>
         <button class="btn btn-primary" id="starterBtn"><span>Begin Quiz</span></button>
     </div>
+
     <div class="container text-center align-center mt-5 pt-5" id="asker" style="display: none">
         <h1 id="questions" class="my-5">
         </h1>
@@ -36,8 +44,9 @@
             </button>
         </ul>
     </div>
+
     <div class="container text-center mt-5 pt-5" id="highscores" style="display: none">
-        <h1>
+        <h1 id = "outOfTime">
             Youre Score: <span id="score"></span>
         </h1>
         <form type="text" method="POST" id="input">
@@ -53,6 +62,7 @@
         </button>
 
     </div>
+
     <div class="container text-center mt-5 pt-5" id="scorePage" style="display: none">
         <h1>
             Scores
@@ -60,7 +70,7 @@
         <ul id="scoreList">
 
         </ul>
-        <button class="btn btn-primary mt-4" id="goAgain">
+        <button class="btn btn-primary mt-4" id="goAgain2">
             Try Again
         </button>
     </div>
