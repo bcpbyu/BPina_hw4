@@ -5,27 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- link to bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
 <body>
+
+    <!-- I created a div for each seperate "page" and turned them on and off as needed -->
+
+
+
+    <!-- This is the div for the timer and score display at the top -->
     <div class="container-fluid text-center" id="someCont" style="display: none">
+
         <div class="row" style="height: 25px;"></div>
         <div class="row font-weight-bold">
+
+            <!-- Timer div -->
             <div class="col-sm-5" id="someDiv"></div>
+
             <div class="col-sm-2"></div>
+
+            <!-- Score div -->
             <div class="col-sm-5" id="scoreDis"></div>
+
         </div>
         <div class="row" style="height: 25px;"></div>
     </div>
 
+    <!-- This is the div for the "home" page of the quiz -->
     <div id="quizStart" style="display: no">
+
+        <!-- Introduction div -->
         <div class="jumbotron text-center">
             <h1 class=display-2>Welcome To My Quiz!</h1>
             <p class="display-4">Made by Brendon Piña</p>
-
         </div>
+
+        <!-- Rules div -->
         <div class="container">
             <div class="container text-center">
                 <div calss="row">
@@ -43,54 +63,88 @@
                         <h4>Good Luck! :)</h4>
                     </ul>
                 </div>
+
+                <!-- Start the quiz button -->
                 <button class="btn btn-primary" id="starterBtn"><span>Begin Quiz</span></button>
+
             </div>
         </div>
+
     </div>
 
-
+    <!-- This is the div for all the quiz questions and options -->
     <div class="container text-center mt-5" id="asker" style="display: none">
+
+        <!-- Question div, text is replaced after you answer the question -->
         <h1 id="questions" class="my-5"></h1>
+
         <ul class="pl-0">
+
+            <!-- Option 1 div, text is replaced after you answer the question -->
             <button class="btn btn-primary mb-2" id="option1"></button>
             <br>
+
+            <!-- Option 2 div, text is replaced after you answer the question -->
             <button class="btn btn-primary my-2" id="option2"></button>
             <br>
+
+            <!-- Option 3 div, text is replaced after you answer the question -->
             <button class="btn btn-primary my-2" id="option3"></button>
             <br>
+
+            <!-- Option 4 div, text is replaced after you answer the question -->
             <button class="btn btn-primary my-2" id="option4"></button>
+
         </ul>
     </div>
 
+    <!-- This is the div for the end of quiz page -->
     <div class="container text-center mt-5 pt-5" id="highscores" style="display: none">
+
+        <!-- Score/Out of time section -->
         <h1 id="outOfTime">
             Youre Score: <span id="score"></span>
         </h1>
+
+        <!-- Input initials form -->
         <form type="text" method="POST" id="input">
             <label for="initials">submit score?</label>
             <br>
             <input id="initials" type="text" name="initials" />
         </form>
+
+        <!-- See all the scores you've saved button -->
         <button class="btn btn-primary mt-4" id="seeScore">
             See All Scores
         </button>
+
+        <!-- Try the quiz again button -->
         <button class="btn btn-primary mt-4" id="goAgain">
             Try Again
         </button>
 
     </div>
 
+    <!-- This is the div for the scores page -->
     <div class="container text-center mt-5 pt-5" id="scorePage" style="display: none">
+
         <h1>
             Scores
         </h1>
+
+        <!-- You're saved scores section -->
         <ul id="scoreList" class="pl-0"></ul>
+
+        <!-- Try the quiz again button -->
         <button class="btn btn-primary mt-4" id="goAgain2">
             Try Again
         </button>
+
     </div>
 
+    <!-- Link to my javascript file -->
     <script src="script.js"></script>
+
 </body>
 
 </html>

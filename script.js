@@ -1,10 +1,16 @@
+// For the javascript I took a very straight forward approach.
+
+// All variable for elements, or needed for javascript.
 var starterBtn = document.querySelector("#starterBtn");
 var quizStart = document.querySelector("#quizStart");
 var scorePage = document.querySelector("#scorePage");
 var asker = document.querySelector("#asker");
 var highscores = document.querySelector("#highscores");
+
+// Store all saved names and scores variables.
 var allNames = [];
 var allScores = [];
+
 var seeScore = document.querySelector("#seeScore");
 var initials = document.querySelector("#initials");
 var input = document.querySelector("#input");
@@ -19,6 +25,8 @@ var options = [option1, option2, option3, option4];
 var disScore = document.querySelector("#score");
 var score = 0;
 var questionNum = 0;
+
+// All questions, options, and answer number variable/object.
 var test = {
     quiz1: {
         question: "What is anything multiplied by zero?",
@@ -41,6 +49,7 @@ var test = {
         answer: 2
     }
 };
+
 var liveScore = document.querySelector("#scoreDis")
 var finished = false;
 var timeLeft = 30;
@@ -49,6 +58,8 @@ var timerId;
 var timePenalty = 3;
 var scoreCount = [];
 
+// This function produces the next question, updates your score, and will 
+// show the end of quiz page at the end.
 function nextQuest() {
     liveScore.innerHTML = "Your score: " + score;
 
@@ -88,6 +99,7 @@ function nextQuest() {
     questionNum++;
 };
 
+// This is for the "Begin Quiz" button to start the quiz, and the timer when clicked.
 starterBtn.addEventListener("click", function () {
     quizStart.style.display = "none";
     asker.style.display = "block";
@@ -97,6 +109,10 @@ starterBtn.addEventListener("click", function () {
     timerId = setInterval(countdown, 1000);
 });
 
+// Every option button produces the next question when clicked, updates your
+// score and timer, and flashes the top red or green.
+
+// First option .
 option1.addEventListener("click", function () {
     if (questionNum == 3) {
         score = score + 5;
@@ -110,6 +126,7 @@ option1.addEventListener("click", function () {
     nextQuest();
 });
 
+// Second option.
 option2.addEventListener("click", function () {
     if (questionNum == 1) {
         score = score + 5;
@@ -123,6 +140,7 @@ option2.addEventListener("click", function () {
     nextQuest();
 });
 
+// Third option.
 option3.addEventListener("click", function () {
     if (questionNum == 4) {
         score = score + 5;
@@ -136,6 +154,7 @@ option3.addEventListener("click", function () {
     nextQuest();
 });
 
+// Fourth option.
 option4.addEventListener("click", function () {
     if (questionNum == 2) {
         score = score + 5;
@@ -149,8 +168,10 @@ option4.addEventListener("click", function () {
     nextQuest();
 });
 
+// This is for the "See All Scores" button when clickled will get your saved
+// scores and show the scores page with all saved scores.
 seeScore.addEventListener("click", function () {
-    
+
     highscores.style.display = "none";
     scorePage.style.display = "block";
     allNames = JSON.parse(localStorage.getItem("initials"));
@@ -164,6 +185,8 @@ seeScore.addEventListener("click", function () {
     }
 });
 
+// This is for when you submit your name to saved score it will save it to
+// be brought up again.
 input.addEventListener("submit", function (event) {
     event.preventDefault();
     var storedNames = JSON.parse(localStorage.getItem("initials"));
@@ -182,14 +205,17 @@ input.addEventListener("submit", function (event) {
     localStorage.setItem("scores", JSON.stringify(allScores));
 });
 
+// For the "Try Again" button on the end of quiz page to restart the site.
 goAgain.addEventListener("click", function () {
     location.reload();
 });
 
+// For the "Try Again" button on the scores page to restart the site.
 goAgain2.addEventListener("click", function () {
     location.reload();
 });
 
+// This function runs the timer and display the time left.
 function countdown() {
     if (timeLeft < 0 && finished == false) {
         clearInterval(timerId);
@@ -203,6 +229,8 @@ function countdown() {
     }
 };
 
+// This function will display the end of quiz page if you run out of time,
+// also changes the words to "Out Of Time".
 function outOfTime() {
     asker.style.display = "none";
     highscores.style.display = "block";
@@ -210,6 +238,7 @@ function outOfTime() {
     document.querySelector("#outOfTime").innerHTML = "Out Of Time";
 };
 
+// This function flashes the top of the page red.
 function flashRed() {
     document.querySelector("#someCont").classList.add("bg-danger");
     window.setTimeout(function () {
@@ -217,6 +246,7 @@ function flashRed() {
     }, 300);
 };
 
+// This function flashes the top of the page green.
 function flashGreen() {
     document.querySelector("#someCont").classList.add("bg-success");
     window.setTimeout(function () {
