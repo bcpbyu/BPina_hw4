@@ -49,8 +49,6 @@ var timerId;
 var timePenalty = 3;
 var scoreCount = [];
 
-
-
 function nextQuest() {
     liveScore.innerHTML = "Your score: " + score;
 
@@ -85,87 +83,61 @@ function nextQuest() {
         disScore.innerHTML = score;
         finished = true;
     }
+
     scoreCount.push(score);
-    console.log(questionNum);
-    console.log(score);
-    console.log(scoreCount);
     questionNum++;
 };
 
 starterBtn.addEventListener("click", function () {
-
     quizStart.style.display = "none";
     asker.style.display = "block";
     countdown();
     nextQuest();
-
-
-
     timerId = setInterval(countdown, 1000);
 });
 
 option1.addEventListener("click", function () {
-
     if (questionNum == 3) {
-
         score = score + 5;
-
     }
     else {
-
         score--;
         timeLeft = timeLeft - timePenalty;
     }
     nextQuest();
-
-
-
-
 });
+
 option2.addEventListener("click", function () {
-
     if (questionNum == 1) {
-
         score = score + 5;
-
     }
     else {
-
         score--;
         timeLeft = timeLeft - timePenalty;
     }
     nextQuest();
-
-
 });
+
 option3.addEventListener("click", function () {
-
     if (questionNum == 4) {
-
         score = score + 5;
     }
     else {
-
         score--;
         timeLeft = timeLeft - timePenalty;
     }
-
     nextQuest();
 });
+
 option4.addEventListener("click", function () {
-
     if (questionNum == 2) {
-
         score = score + 5;
     }
     else {
-
         score--;
         timeLeft = timeLeft - timePenalty;
     }
-
     nextQuest();
-
 });
 
 seeScore.addEventListener("click", function () {
@@ -176,10 +148,8 @@ seeScore.addEventListener("click", function () {
     for (var i = 0; i < allScores.length; i++) {
         var some = allNames[i];
         var some2 = allScores[i];
-
         var pa = document.createElement("p");
         pa.textContent = some + ": " + some2;
-
         scoreList.appendChild(pa);
     }
 });
@@ -199,35 +169,17 @@ input.addEventListener("submit", function (event) {
 goAgain.addEventListener("click", function () {
     location.reload();
 });
+
 goAgain2.addEventListener("click", function () {
     location.reload();
 });
 
-// function startTimer() {
-//     setTime();
-
-//     // we only want to start the timer if minutes is > 0
-//     if (totalSeconds > 0) {
-//         /* the "interval" variable here using "setInterval()" begins the recurring increment of the 
-//            secondsElapsed variable which is used to check if the time is up */
-//         interval = setInterval(function () {
-//             secondsElapsed++;
-//             //So renderTime() is called here once every second.
-//             renderTime();
-//         }, 1000);
-//     } else {
-//         alert("Minutes of work/rest must be greater than 0.")
-//     }
-// };
-
 function countdown() {
-
     if (timeLeft < 0 && finished == false) {
         clearInterval(timerId);
         outOfTime();
     }
     else if (finished == true) {
-
     }
     else {
         elem.innerHTML = timeLeft + ' seconds remaining';
